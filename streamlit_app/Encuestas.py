@@ -15,6 +15,7 @@ st.sidebar.success('¿Cómo funciona el modelo en tiempo real?')
 # Muestra el contenido de la pestaña seleccionada
 
 encuesta = st.selectbox('¿Qué experiencia nos quieres compartir hoy?', ['Booking', 'Check In', 'Manage my booking', 'Feedback'])
+respuesta = ""
 
 with st.form(key="mi_formulario"):
         if encuesta == 'Booking':
@@ -44,14 +45,12 @@ with st.form(key="mi_formulario"):
 
         if boton:
             data = data={"feedback": str(texto)}
-            res = requests.post("http://0.0.0.0:8000/analyze-feedback", data=json.dumps(data))
+            res = requests.post("http://20.85.237.99/analyze-feedback", data=json.dumps(data))
             respuesta = res.json()["message"]
-            print(respuesta)
 """
 Llamar modelo
 """
 
-respuesta = "Nos gusta escuchar eso"
 if(respuesta != ""):
      st.info(respuesta)
 

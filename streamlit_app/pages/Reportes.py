@@ -1,10 +1,19 @@
 import streamlit as st
 import pandas as pd
 import numpy as np
+import matplotlib.pyplot as plt
 
-st.title('Reporte dierio 📊')
+st.title('Reporte diario 📊')
 st.sidebar.success('¿Qué podemos hacer mejor hoy?')
 
-db = pd.read_csv("booking_flow_processed")
+dbBook = pd.read_csv("pages/booking_flow_processed.csv")
 
-st.write(db)
+# Count the number of occurrences of each unique value in a column
+counts = dbBook['negativo'].value_counts()
+
+# Create a pie chart and display it in Streamlit
+fig, ax = plt.subplots()
+ax.pie(counts.values, labels=counts.index, autopct='%1.1f%%')
+ax.axis('equal')
+st.pyplot(fig)
+
