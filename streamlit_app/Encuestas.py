@@ -14,7 +14,6 @@ st.sidebar.success('¿Qué podemos hacer mejor hoy?')
 
 encuesta = st.selectbox('¿Qué experiencia nos quieres compartir hoy?', ['Booking', 'Check In', 'Manage my booking', 'Feedback'])
 
-
 with st.form(key="mi_formulario"):
         if encuesta == 'Booking':
             st.header('Booking 🧳')
@@ -40,13 +39,22 @@ with st.form(key="mi_formulario"):
             nps = st.slider('Nada ⚪ ⚪ ⚪ ⚪ ⚪ ⚪ ⚪ ⚪ ⚪ ⚪ ⚪ ⚪ ⚪ ⚪ ⚪ ⚪ ⚪ ⚪ ⚪ ⚪ ⚪ ⚪ ⚪ ⚪ ⚪ Muy probable', 1, 10, 5)
             texto = st.text_input('¿Alguna recomendación? Tus comentarios son muy importantes para nosotros')
             boton = st.form_submit_button("Enviar")
-            
+
 
 """
-    df = pd.DataFrame({
-        'Color favorito': [respuesta1],
-        'Sabor de helado favorito': [respuesta2]
-    })
+Llamar modelo
 
 """
+respuesta = "Nos gusta escuchar eso"
+if(respuesta != ""):
+     st.info(respuesta)
+
+
+
+st.write('_No visible para el cliente:_')
+
+st.write('**Sentimiento:** ', 'Positivo')
+st.write('**Tema:** ', 'Servicio')
+
+
 
