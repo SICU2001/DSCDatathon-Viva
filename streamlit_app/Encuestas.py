@@ -46,6 +46,7 @@ with st.form(key="mi_formulario"):
             data = data={"feedback": str(texto)}
             res = requests.post("http://0.0.0.0:8000/analyze-feedback", data=json.dumps(data))
             respuesta = res.json()["message"]
+            print(respuesta)
 """
 Llamar modelo
 """
