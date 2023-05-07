@@ -1,3 +1,5 @@
+import requests
+import json
 import streamlit as st
 import pandas as pd
 import numpy as np
@@ -40,11 +42,14 @@ with st.form(key="mi_formulario"):
             texto = st.text_input('¿Alguna recomendación? Tus comentarios son muy importantes para nosotros')
             boton = st.form_submit_button("Enviar")
 
-
+        if boton:
+            data = data={"feedback": str(texto)}
+            res = requests.post("http://0.0.0.0:8000/analyze-feedback", data=json.dumps(data))
+            respuesta = res.json()["message"]
 """
 Llamar modelo
-
 """
+
 respuesta = "Nos gusta escuchar eso"
 if(respuesta != ""):
      st.info(respuesta)
