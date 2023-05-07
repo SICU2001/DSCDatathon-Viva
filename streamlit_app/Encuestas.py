@@ -8,7 +8,7 @@ st.set_page_config(
 )
 
 st.title('Queremos saber tu opinión 📝')
-st.sidebar.success('¿Qué podemos hacer mejor hoy?')
+st.sidebar.success('¿Cómo funciona el modelo en tiempo real?')
 
 # Muestra el contenido de la pestaña seleccionada
 
