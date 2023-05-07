@@ -47,14 +47,9 @@ with st.form(key="mi_formulario"):
             data = data={"feedback": str(texto)}
             res = requests.post("http://20.85.237.99/analyze-feedback", data=json.dumps(data))
             respuesta = res.json()["message"]
-"""
-Llamar modelo
-"""
 
 if(respuesta != ""):
      st.info(respuesta)
-
-
 
 st.write('_No visible para el cliente:_')
 

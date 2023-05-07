@@ -3,6 +3,11 @@ import pandas as pd
 import numpy as np
 import matplotlib.pyplot as plt
 
+st.set_page_config(
+    page_title = "Viva Aerobus Manager",
+    page_icon = '✈️',
+)
+
 st.title('Reporte diario 📊')
 st.sidebar.success('¿Qué podemos hacer mejor hoy?')
 
