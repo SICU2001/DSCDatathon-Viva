@@ -24,29 +24,42 @@ with st.form(key="mi_formulario"):
             nps = st.slider('Nada ⚪ ⚪ ⚪ ⚪ ⚪ ⚪ ⚪ ⚪ ⚪ ⚪ ⚪ ⚪ ⚪ ⚪ ⚪ ⚪ ⚪ ⚪ ⚪ ⚪ ⚪ ⚪ ⚪ ⚪ ⚪ Muy probable', 1, 10, 5)
             texto = st.text_input('¿Cuál es el motivo?')
             boton = st.form_submit_button("Enviar")
+            if boton:
+                data = data={"feedback": str(texto)}
+                res = requests.post("http://20.85.237.99/analyze-feedback", data=json.dumps(data))
+                respuesta = res.json()["message"]
         elif encuesta == 'Check In':
             st.header('Check In 🎫')
             st.write('¿Qué tan probable es que recomiendes el proceso de Check-in en nuestra página web?')
             nps = st.slider('Nada ⚪ ⚪ ⚪ ⚪ ⚪ ⚪ ⚪ ⚪ ⚪ ⚪ ⚪ ⚪ ⚪ ⚪ ⚪ ⚪ ⚪ ⚪ ⚪ ⚪ ⚪ ⚪ ⚪ ⚪ ⚪ Muy probable', 1, 10, 5)
             texto = st.text_input('¿Cuál es el motivo?')
             boton = st.form_submit_button("Enviar")
+            if boton:
+                data = data={"feedback": str(texto)}
+                res = requests.post("http://20.85.237.99/analyze-feedback", data=json.dumps(data))
+                respuesta = res.json()["message"]
         elif encuesta == 'Manage my booking':
             st.header('Manage my booking 💺')
             st.write('¿Qué tan probable es que recomiendes el proceso de \'Administrar tu reservación\'?')
             nps = st.slider('Nada ⚪ ⚪ ⚪ ⚪ ⚪ ⚪ ⚪ ⚪ ⚪ ⚪ ⚪ ⚪ ⚪ ⚪ ⚪ ⚪ ⚪ ⚪ ⚪ ⚪ ⚪ ⚪ ⚪ ⚪ ⚪ Muy probable', 1, 10, 5)
             texto = st.text_input('¿Cuál es el motivo?')
             boton = st.form_submit_button("Enviar")
+            if boton:
+                data = data={"feedback": str(texto)}
+                res = requests.post("http://20.85.237.99/analyze-feedback", data=json.dumps(data))
+                respuesta = res.json()["message"]
         elif encuesta == 'Feedback':
             st.header('Feedback 📈')
             st.write('¿Cómo calificas tu experiencia con Viva Aerobús?')
             nps = st.slider('Nada ⚪ ⚪ ⚪ ⚪ ⚪ ⚪ ⚪ ⚪ ⚪ ⚪ ⚪ ⚪ ⚪ ⚪ ⚪ ⚪ ⚪ ⚪ ⚪ ⚪ ⚪ ⚪ ⚪ ⚪ ⚪ Muy probable', 1, 10, 5)
             texto = st.text_input('¿Alguna recomendación? Tus comentarios son muy importantes para nosotros')
             boton = st.form_submit_button("Enviar")
+            if boton:
+                data = data={"feedback": str(texto)}
+                res = requests.post("http://20.85.237.99/analyze-feedback", data=json.dumps(data))
+                respuesta = res.json()["message"]
 
-        if boton:
-            data = data={"feedback": str(texto)}
-            res = requests.post("http://20.85.237.99/analyze-feedback", data=json.dumps(data))
-            respuesta = res.json()["message"]
+        
 
 if(respuesta != ""):
      st.info(respuesta)
