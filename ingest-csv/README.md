@@ -10,3 +10,12 @@ Herramientas utilizadas
 
 ## ¿Como?
 Es recomendado utilizar un virtual environment para descargar las librerias necesarias. e.g. Anaconda.
+
+```
+pip install -r requirements.txt
+python ingest_csv.py
+```
+Despues de esto se generará el archivo csv de sentimientos extraidos.
+
+
+
